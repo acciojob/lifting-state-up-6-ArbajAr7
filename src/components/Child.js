@@ -8,18 +8,17 @@ const Child = props => {
         <div>
             {todos.map((item) => (
                 <div key={item.id}>
-                    <ul>
-                        <li>
-                            <div className='abcd'>
-                                <p>{item.text}</p>
-                                {item.completed ? (
-                                    <p></p>
-                                    ) : (
-                                    <button onClick={() => onComplete(item.id)}>Complete</button>
-                                )}
-                            </div>
-                        </li>
-                    </ul>
+                    {item.completed ? (
+                        <p className='com'>completed</p>
+                        ) : (
+                            <ul>
+                                <li className='abcd'>
+                                        <p>{item.text}</p>
+                                        <button onClick={() => onComplete(item.id)}>Complete</button>
+                                </li>
+                            </ul>
+                    )}
+                    
                     
 
             </div>
