@@ -1,34 +1,20 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-
-const Child = props => {
-    const {todos, handleComplete} = props;
-    console.log(todos);
-    return (
-        <ul>
-            {todos.map((todo) => (
-            <li key={todo.id}>
-                {todo.text}
-                {!todo.completed && (
-                <button onClick={() => handleComplete(todo.id)}>
-                    Complete
-                </button>
-                )}
-            </li>
-            ))}
-        </ul>
+ 
+const Child = ({ todos, onTodoComplete }) => {
+  return (
+    <div className='child'>
         
-    )
-}
-
-Child.propTypes = {
-    todos: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        text: PropTypes.string.isRequired,
-        completed: PropTypes.bool.isRequired,
-      })
-    ).isRequired,
-  };
-
-export default Child
+        <ul>
+        <h2>Child Component</h2>
+        {todos.map(todo => (
+            <li key={todo.id}>
+            <span style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>{todo.text}</span>
+            {!todo.completed && <button onClick={() => onTodoComplete(todo.id)}>Complete</button>}
+            </li>
+        ))}
+        </ul>
+    </div>
+  );
+};
+ 
+export default Child;
