@@ -22,7 +22,7 @@ const App = () => {
     <div>
       <h1>Parent Component</h1>
       <h3>Child Component</h3>
-      <Child todos = {todos} onComplete={handleComplete}/>
+      <Child todos = {todos} handleComplete={handleComplete}/>
     </div>
   )
 }
